@@ -1,0 +1,93 @@
+/* Home.css */
+
+.card {
+    border-radius: 12px; /* Karta burchaklari uchun yumshoqroq radius */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    transition: transform 0.5s ease, box-shadow 0.5s ease, background-color 0.5s ease, border-color 0.5s ease, filter 0.5s ease;
+    cursor: pointer;
+    margin-bottom: 20px;
+    position: relative; /* Animatsiyalar uchun */
+  }
+  
+  /* Hover holatidagi animatsiyalar */
+  .card:hover {
+    transform: scale(1.1) rotate(2deg); /* Kartani kattalashtirish va biroz aylantirish */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); /* Soya kattalashishi */
+    border: 2px solid #007bff; /* Kartaning hover holatidagi chegara */
+    filter: brightness(1.05) contrast(1.1); /* Yorqinlik va kontrastni oshirish */
+    animation: pulseAnimation 1.5s infinite; /* Pulsatsiya animatsiyasi */
+  }
+  
+  /* Karta tasviri */
+  .card-image {
+    width: 100%;
+    height: 200px; /* Maxsus balandlik */
+    object-fit: cover; /* Tasvirni kartaga moslashtirish */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  /* Hover holatida tasvirning opasiti o'zgarishi va transform */
+  .card:hover .card-image {
+    opacity: 0.75;
+    transform: scale(1.2); /* Tasvirni kattalashtirish */
+  }
+  
+  /* Karta mazmuni */
+  .card-content {
+    padding: 16px;
+  }
+  
+  /* Karta nomi */
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: color 0.5s ease, transform 0.5s ease;
+  }
+  
+  /* Hover holatida karta nomining rangini o'zgartirish va transform */
+  .card:hover .card-title {
+    color: #007bff; /* Rangni o'zgartirish */
+    transform: translateY(-8px); /* Nomi yuqoriga siljitish */
+  }
+  
+  /* Karta tavsifi */
+  .card-description {
+    margin-top: 8px;
+    transition: color 0.5s ease;
+  }
+  
+  /* Hover holatida karta tavsifining rangini o'zgartirish */
+  .card:hover .card-description {
+    color: #c6f40d; /* Rangni o'zgartirish */
+  }
+  
+  /* Karta narxi */
+  .card-price {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-top: 8px;
+    transition: color 0.5s ease;
+  }
+  
+  /* Hover holatida karta narxining rangini o'zgartirish */
+  .card:hover .card-price {
+    color: #28a745; /* Rangni o'zgartirish */
+  }
+  
+  /* Pulsatsiya animatsiyasi */
+  @keyframes pulseAnimation {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+      transform: scale(1.05);
+      box-shadow: 0 25px 35px rgba(0, 0, 0, 0.4);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+    }
+  }
+  
