@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import Navbar from './Components/Navbar';
 import Home from './Pages/Home';
 import About from './Pages/About';
 import Contact from './Pages/Contact';
-import Product from './Pages/Prouct'; // Import the Product page
-import Loader from './Components/Loader'; // Import the Loader component
+import Product from './Pages/Prouct';
+import Loader from './Components/Loader';
+import Login from './Pages/Login';
+import Register from './Pages/Register'; // Register page import qiling
+import ProtectedRoute from './Components/ProtectedRoute';
 import './App.css';
 
 function App() {
@@ -16,30 +19,41 @@ function App() {
     axios.get('https://json-api.uz/api/project/test-api/products')
       .then((response) => {
         console.log(response.data);
-        setLoading(false); // Set loading to false when data is fetched
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
-        setLoading(false); // Set loading to false in case of error
+        setLoading(false);
       });
   }, []);
 
   if (loading) {
-    return <Loader />; // Show loader while loading
+    return <Loader />;
   }
 
   return (
     <Router>
-      <div className="align">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/product/:id" element={<Product />} /> {/* Add the Product route */}
-        </Routes>
-      </div>
+      <MainContent />
     </Router>
+  );
+}
+
+function MainContent() {
+  const location = useLocation();
+  const showNavbar = !['/login', '/register'].includes(location.pathname); // Navbarni ko'rsatmaslik kerak bo'lgan sahifalarni tekshirish
+
+  return (
+    <div className="align">
+      {showNavbar && <Navbar />} {/* Shartli ravishda Navbarni ko'rsatish */}
+      <Routes>
+        <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/product/:id" element={<Product />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} /> {/* Register sahifasini qo'shing */}
+      </Routes>
+    </div>
   );
 }
 
