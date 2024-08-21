@@ -54,6 +54,9 @@ function Navbar() {
               <li>
                 <Link to="/contact">Contact</Link>
               </li>
+              <li>
+                <Link to="/todo">Todo</Link>
+              </li>
             </ul>
           </div>
         </div>
@@ -67,6 +70,9 @@ function Navbar() {
             </Link>
             <Link to="/contact">
               <button className="btn btn-ghost">Contact</button>
+            </Link>
+            <Link to="/todo">
+              <button className="btn btn-ghost">Todo</button>
             </Link>
           </div>
         </div>

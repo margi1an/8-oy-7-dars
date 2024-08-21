@@ -1,7 +1,12 @@
 import React from 'react';
 import './Register.css';
+import { useNavigate } from 'react-router-dom';
 
 function Register() {
+  const navigate = useNavigate();
+  const handlw = () => {
+    navigate('/');
+  }
   return (
     <div className="register-container">
       <div className="register-box">
@@ -23,7 +28,7 @@ function Register() {
             <label htmlFor="confirm-password">Confirm Password</label>
             <input type="password" id="confirm-password" className="input-field" required />
           </div>
-          <button type="submit" className="submit-button">Register</button>
+          <button type="submit" onClick={handlw} className="submit-button">Register</button>
         </form>
         <div className="login-link">
           <p>Already have an account? <a href="/login">Log in</a></p>
