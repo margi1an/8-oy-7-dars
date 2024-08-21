@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import './Navbar.css';
 import { Link } from "react-router-dom";
 
 function themee(){
@@ -12,15 +13,17 @@ function Navbar() {
     const newTheme = theme === "winter" ? "dracula" : "winter";
     setTheme(newTheme);
   }
+  
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
-  }, [theme])
+  }, [theme]);
+
   return (
     <div>
       <div className="navbar bg-base-100">
         <div className="navbar-start">
-          <div className="dropdown">
+          <div className="dropdown pl-8">
             <div
               tabIndex={0}
               role="button"

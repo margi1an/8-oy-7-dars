@@ -1,0 +1,38 @@
+/* Footer.css */
+.footer {
+    background-color: #f8f9fa;
+    color: #333;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem 0;
+  }
+  
+  .footer-info {
+    text-align: left;
+  }
+  
+  .footer-social {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .social-link {
+    color: #333;
+    transition: color 0.3s ease;
+  }
+  
+  .social-link:hover {
+    color: #0077b5; /* Change color on hover */
+  }
+  
+  .footer p {
+    margin: 0;
+  }
+  
+  .footer h4 {
+    margin-bottom: 8px;
+  }
+  
+  .footer a {
+    text-decoration: none;
+  }
+  

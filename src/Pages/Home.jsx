@@ -2,15 +2,16 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
+import Footer from '../Components/Footer'; // Footer componentini import qilish
 
 function Home() {
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('https://fakestoreapi.com/products') // Example API endpoint
+    axios.get('https://fakestoreapi.com/products')
       .then(response => {
-        setProducts(response.data); // Set the products state with the fetched data
+        setProducts(response.data);
       })
       .catch(error => {
         console.error('Error fetching data:', error);
@@ -38,7 +39,7 @@ function Home() {
             onClick={() => handleCardClick(product.id)}
           >
             <img
-              src={product.image} // Assuming the API provides image URLs
+              src={product.image}
               alt={product.title}
               className="card-image"
             />
@@ -50,6 +51,7 @@ function Home() {
           </div>
         ))}
       </div>
+      <Footer /> {/* Footer qo'shilmoqda */}
     </div>
   );
 }

@@ -1,0 +1,20 @@
+/* Navbar.css */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Yuqorida turishi uchun */
+    background-color: #fff; /* Orqa fon rangi */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Bir oz soyani qo'shish */
+  }
+  
+  /* Main content to avoid overlap with fixed navbar */
+body {
+    padding-top: 60px; /* Navbar balandligi */
+  }
+  
+  .swap{
+    padding-right:40px;
+  }
